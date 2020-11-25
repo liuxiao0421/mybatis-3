@@ -315,7 +315,9 @@ public class XMLConfigBuilder extends BaseBuilder {
     if (context != null) {
       String type = context.getStringAttribute("type");
       Properties props = context.getChildrenAsProperties();
-      TransactionFactory factory = (TransactionFactory) resolveClass(type).getDeclaredConstructor().newInstance();
+//      TransactionFactory factory = (TransactionFactory) resolveClass(type).getDeclaredConstructor().newInstance();
+      Class<?> aClass = resolveClass(type);
+      TransactionFactory factory = (TransactionFactory) aClass.getDeclaredConstructor().newInstance();
       factory.setProperties(props);
       return factory;
     }
@@ -326,7 +328,9 @@ public class XMLConfigBuilder extends BaseBuilder {
     if (context != null) {
       String type = context.getStringAttribute("type");
       Properties props = context.getChildrenAsProperties();
-      DataSourceFactory factory = (DataSourceFactory) resolveClass(type).getDeclaredConstructor().newInstance();
+//      DataSourceFactory factory = (DataSourceFactory) resolveClass(type).getDeclaredConstructor().newInstance();
+      Class<?> aClass = resolveClass(type);
+      DataSourceFactory factory = (DataSourceFactory) aClass.getDeclaredConstructor().newInstance();
       factory.setProperties(props);
       return factory;
     }

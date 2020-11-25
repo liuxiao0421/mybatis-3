@@ -10,5 +10,7 @@ import org.mybatis.example.pojo.User;
  * @Date: 2020/11/24 4:40 下午
  **/
 public interface UserMapper {
-  public User getUser(int lfPartyId);
+  User getUser(int lfPartyId);
+
+  int updateUser(int id);
 }

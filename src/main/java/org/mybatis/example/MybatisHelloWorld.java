@@ -24,8 +24,11 @@ public class MybatisHelloWorld {
 
       SqlSession session = sqlMapper.openSession();
       try {
-        User user = session.selectOne("org.mybatis.example.mapper.UserMapper.getUser", 1);
-        System.out.println(user.getLfPartyId() + "," + user.getPartyName());
+//        User user = session.selectOne("org.mybatis.example.mapper.UserMapper.getUser", 1);
+//        System.out.println(user.getLfPartyId() + "," + user.getPartyName());
+
+        int update = session.update("org.mybatis.example.mapper.UserMapper.updateUser", 1);
+        System.out.println(update);
       } finally {
         session.close();
       }

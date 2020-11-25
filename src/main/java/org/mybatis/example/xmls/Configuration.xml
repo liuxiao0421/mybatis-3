@@ -12,6 +12,16 @@
         <property name="password" value="wdsr@0421"/>
       </dataSource>
     </environment>
+
+    <environment id="test">
+      <transactionManager type="MANAGED"/>
+      <dataSource type="POOLED">
+<!--        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>-->
+        <property name="url" value="jdbc:mysql://localhost:3306/test?useUnicode=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="wdsr@0421"/>
+      </dataSource>
+    </environment>
   </environments>
   <mappers>
     <mapper resource="org/mybatis/example/xmls/UserMapper.xml"/>
